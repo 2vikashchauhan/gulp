@@ -1,0 +1,148 @@
+
+$color_1: white;
+$color_2: black;
+$font-family_1: sans-serif;
+$background-color_1: #212121;
+$background-color_2: transparent;
+$background-color_3: #bbb;
+$background-color_4: black;
+
+body {
+	font-family: $font-family_1;
+	background-color: $background-color_1;
+}
+h1 {
+	color: $color_1;
+	font-size: 36px;
+	text-align: center;
+}
+.image-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 60%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+.media {
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+	overflow: hidden;
+	position: relative;
+	&:hover {
+		cursor: pointer;
+		.overlay {
+			opacity: 1;
+		}
+		img {
+			filter: blur(6px);
+		}
+		.image-details {
+			top: 40%;
+			opacity: 1;
+		}
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		margin: auto;
+		transform: scale(1);
+		transition: all ease-in-out 0.5s;
+	}
+}
+.media2 {
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+	overflow: hidden;
+	position: relative;
+}
+.overlay {
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 3;
+	opacity: 0;
+	transition: all ease-in-out 0.5s;
+}
+.zoom {
+	img {
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		transform-origin: 50% 65%;
+		transition: transform 5s, filter 3s ease-in-out;
+		filter: brightness(120%);
+	}
+	&:hover {
+		img {
+			filter: brightness(100%);
+			transform: scale(3);
+		}
+	}
+	width: 200px;
+	height: 200px;
+}
+.image-details {
+	text-align: center;
+	color: $color_1;
+	font-size: 20px;
+	z-index: 4;
+	position: absolute;
+	top: 100%;
+	opacity: 0;
+	transition: all ease-in-out 0.5s;
+}
+.box {
+	background-color: $background-color_2;
+	width: 200px;
+	height: 200px;
+	perspective: 1000px;
+	margin: 10px;
+	&:hover {
+		.inner {
+			transform: rotateY(180deg);
+		}
+	}
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+.inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+.front {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background-color: $background-color_3;
+	color: $color_2;
+}
+.back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background-color: $background-color_4;
+	color: $color_1;
+	transform: rotateY(180deg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

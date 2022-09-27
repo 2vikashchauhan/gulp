@@ -1,0 +1,146 @@
+body {
+  font-family: sans-serif;
+  background-color: #212121;
+}
+
+h1 {
+  color: white;
+  font-size: 36px;
+  text-align: center;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.media {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.media:hover {
+  cursor: pointer;
+}
+.media:hover .overlay {
+  opacity: 1;
+}
+.media:hover img {
+  filter: blur(6px);
+}
+.media:hover .image-details {
+  top: 40%;
+  opacity: 1;
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  margin: auto;
+  transform: scale(1);
+  transition: all ease-in-out 0.5s;
+}
+
+.media2 {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+
+.zoom {
+  width: 200px;
+  height: 200px;
+}
+.zoom img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  transform-origin: 50% 65%;
+  transition: transform 5s, filter 3s ease-in-out;
+  filter: brightness(120%);
+}
+.zoom:hover img {
+  filter: brightness(100%);
+  transform: scale(3);
+}
+
+.image-details {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  z-index: 4;
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+
+.box {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 10px;
+}
+.box:hover .inner {
+  transform: rotateY(180deg);
+}
+.box img {
+  width: 100%;
+  height: 100%;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #bbb;
+  color: black;
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
